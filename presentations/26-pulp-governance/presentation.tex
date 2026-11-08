@@ -1,0 +1,179 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{tikz}
+
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent=30}
+
+\definecolor{pulpblue}{HTML}{347DBE}
+\definecolor{pulpgreen}{HTML}{04AE19}
+\definecolor{pulporange}{HTML}{FF9507}
+\definecolor{pulpcharcoal}{HTML}{383838}
+\definecolor{pulplightgreen}{HTML}{F4FAF2}
+
+\setbeamercolor{background canvas}{bg=pulplightgreen}
+\setbeamercolor{normal text}{fg=pulpcharcoal,bg=pulplightgreen}
+\setbeamercolor{structure}{fg=pulpblue}
+\setbeamercolor{title}{fg=pulpblue}
+\setbeamercolor{subtitle}{fg=pulpgreen}
+\setbeamercolor{author}{fg=pulpcharcoal}
+\setbeamercolor{date}{fg=pulpcharcoal}
+\setbeamercolor{frametitle}{fg=pulpblue,bg=pulplightgreen}
+\setbeamercolor{itemize item}{fg=pulpgreen}
+\setbeamercolor{itemize subitem}{fg=pulpblue}
+\setbeamercolor{enumerate item}{fg=pulpblue}
+\setbeamercolor{alerted text}{fg=pulporange}
+
+\setbeamercolor{breadcrumb}{fg=black!65,bg=pulplightgreen}
+\setbeamerfont{breadcrumb}{size=\scriptsize}
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[
+      wd=.82\paperwidth,
+      ht=2.5ex,
+      dp=3ex,
+      leftskip=1em
+    ]{breadcrumb}%
+      \usebeamerfont{breadcrumb}%
+      \ifnum\value{framenumber}=1
+        {\small\insertshortauthor{} - 2026}
+      \else\ifnum\value{section}>0
+        \insertsectionhead%
+        \ifnum\value{subsection}>0
+          \enspace\textcolor{black!35}{/}\enspace
+          \textbf{\insertsubsectionhead}%
+        \fi
+      \fi\fi
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[
+      wd=.18\paperwidth,
+      ht=2.5ex,
+      dp=3ex,
+      rightskip=1em
+    ]{breadcrumb}%
+      \usebeamerfont{breadcrumb}%
+      \hfill\insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}%
+  }%
+}
+
+\title{Welcome Pulp Governance}
+\subtitle{Past, Present and Future}
+\author{Pedro Brochado}
+\date{November 9, 2026}
+
+\begin{document}
+
+\begin{frame}
+  \vspace*{\fill}
+  \begin{center}
+    \includegraphics[height=.18\paperheight]{_build/pulp-logo.pdf}\par
+    \vspace{.1\paperheight}
+    {\usebeamercolor[fg]{title}\fontsize{18}{18}\selectfont\bfseries
+      \MakeUppercase{\inserttitle}\par}
+    \vspace{.2em}
+    {\usebeamercolor[fg]{subtitle}\Large\insertsubtitle\par}
+  \end{center}
+  \vspace*{\fill}
+\end{frame}
+
+\begin{frame}{Abstract}
+  Summarize the governance question, the proposed approach, and the intended
+  outcome.
+\end{frame}
+
+\section{Revision}
+
+\begin{frame}{References reviewed}
+  \begin{itemize}
+    \item \textbf{Red Hat's CRA position}: industry context on lifecycle security.
+    \item \textbf{Stewardship guidance}: Red Hat's stated role and practices for Pulp.
+    \item \textbf{Community health audit (2018)}: historical governance and process context.
+    \item \textbf{The Open Source Way}: governance roles, policies, and community evolution.
+    \item \textbf{Pulp governance repository}: current project policies and processes.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Current context}
+  Document existing governance arrangements. Cite primary sources for current
+  roles, processes, and policies. Use the CRA materials for industry context
+  and the 2018 audit for historical context.
+\end{frame}
+
+\section{Goal}
+
+\begin{frame}{Goal}
+  State the governance question, intended audience, and desired outcome.
+\end{frame}
+
+\section{What is governance?}
+
+\begin{frame}{What is governance?}
+  Define governance for the Pulp project and identify the roles, policies, and
+  procedures that shape how the community works.
+\end{frame}
+
+\section{Past, Present and Future}
+
+\subsection{Past}
+
+\begin{frame}{Past}
+  \begin{itemize}[<+->]
+    \item Project health audits
+    \item Community leadership
+    \item Something else
+  \end{itemize}
+\end{frame}
+
+\subsection{Present}
+
+\begin{frame}{Present}
+  \begin{itemize}
+    \item Pulp governance repository
+    \item Cyber Resilience Act (CRA)
+  \end{itemize}
+\end{frame}
+
+\subsection{Future}
+
+\begin{frame}{Future}
+  \begin{itemize}
+    \item Automated audits
+    \item \texttt{MAINTAINERS.md} (CNCF)
+  \end{itemize}
+\end{frame}
+
+\section{Open questions}
+
+\begin{frame}{Open questions}
+  Collect unresolved questions, potential risks, and decisions needed from the
+  intended audience.
+\end{frame}
+
+\section{References}
+
+\begin{frame}{References}
+  \footnotesize
+  \begin{itemize}
+    \item \href{https://www.redhat.com/en/red-hat-eu-cyber-resilience-act}{Red Hat and the EU Cyber Resilience Act (CRA)}
+    \item \href{https://access.redhat.com/security/eu-cyber-resilience-act-stewardship-guidelines}{EU Cyber Resilience Act Stewardship Guidelines}
+    \item \href{https://pulpproject.org/blog/2018/09/17/pulp-community-health-audit-report/}{Pulp Community Health Audit Report (2018)}
+    \item \href{https://guidebook.theopensourceway.org/growing-contributors/project-and-community-governance}{The Open Source Way: Project and Community Governance}
+    \item \href{https://github.com/pulp/governance/}{Pulp governance repository}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south,inner sep=0,yshift=4ex]
+      at (current page.south)
+      {\begin{tabular}{c}
+        \includegraphics[height=.42\paperheight]{_build/pulp-mascot.pdf}\\[-.1em]
+        {\small\textit{``Thanks!''}}
+      \end{tabular}};
+  \end{tikzpicture}
+\end{frame}
+
+\end{document}

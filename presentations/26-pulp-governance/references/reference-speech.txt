@@ -1,0 +1,5 @@
+Today I want to discuss how Pulp can make governance easier to understand and
+participate in. We need clear decision paths, visible records, and useful ways
+for contributors to raise questions. The goal is a process that supports
+project health, keeps responsibilities understandable, and can adapt as the
+community changes.

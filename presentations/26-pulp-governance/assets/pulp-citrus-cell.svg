@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+  <title>Pulp citrus pattern cell</title>
+  <defs>
+    <g id="orange-slice">
+      <circle r="34" fill="#ff9507"/>
+      <circle r="29" fill="#ffc85b"/>
+      <circle r="24" fill="#ffad2e"/>
+      <g fill="none" stroke="#fff0c9" stroke-linecap="round" stroke-width="2.5">
+        <path d="M0-4V-24"/>
+        <path d="M0 4V24"/>
+        <path d="M-4 0H-24"/>
+        <path d="M4 0H24"/>
+        <path d="m-3-3-17-17"/>
+        <path d="m3 3 17 17"/>
+        <path d="m3-3 17-17"/>
+        <path d="m-3 3-17 17"/>
+      </g>
+      <circle r="4" fill="#fff0c9"/>
+    </g>
+  </defs>
+
+  <!-- Half-step row offsets make an even, staggered repeat. -->
+  <use href="#orange-slice" transform="translate(36 60) scale(1.05)"/>
+  <use href="#orange-slice" transform="translate(196 145) scale(.55)"/>
+  <use href="#orange-slice" transform="translate(408 44) scale(.78)"/>
+  <use href="#orange-slice" transform="translate(104 271) scale(.78)"/>
+  <use href="#orange-slice" transform="translate(317 213) scale(1.05)"/>
+  <use href="#orange-slice" transform="translate(428 108) scale(.55)"/>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-labelledby="title desc">
+  <title id="title">Pulp waving orange mascot</title>
+  <desc id="desc">A simple outlined orange with two green leaves and line limbs.</desc>
+  <style>
+    .outline {
+      stroke: #333333;
+      stroke-width: 5.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+
+  <!-- Arms and longer L-shaped legs. -->
+  <g class="outline" fill="none">
+    <path d="M83 282 C74 287 65 293 59 303 C52 314 47 326 42 337 C39 344 35 350 32 355"/>
+    <path d="M315 258 C323 254 330 250 335 244 C341 237 341 230 346 222 C351 214 355 207 357 200 C359 193 361 187 363 181"/>
+    <path d="M373 187 C379 180 382 171 381 165 C380 161 379 158 379 156"/>
+    <path d="M385 192 C391 186 395 177 395 171 C395 167 392 164 390 161"/>
+    <path d="M146 384 C143 397 145 409 141 421 C137 434 135 447 134 457 C133 461 132 464 130 466 L113 465"/>
+    <path d="M255 384 C254 398 260 414 263 429 C266 442 267 455 270 466 L293 464"/>
+  </g>
+
+  <!-- Same-color leaves, with the left leaf smaller. -->
+  <path class="outline" d="M199 173 C198 159 200 145 197 136 C196 131 195 127 195 123" fill="none"/>
+  <path class="outline" d="M195 151 C183 137 163 124 148 117 C138 112 129 112 123 116 C127 126 131 137 142 145 C157 156 176 161 195 159Z" fill="#3b9146"/>
+  <path class="outline" d="M204 157 C212 139 221 119 234 105 C248 91 270 83 289 87 C292 99 288 113 280 125 C264 144 233 158 204 165Z" fill="#3b9146"/>
+
+  <!-- Solid orange body with the same outline width as the limbs and leaves. -->
+  <path class="outline" d="M200 160 C226 159 249 165 269 178 C296 194 312 220 315 249 C319 274 316 299 309 322 C297 356 269 384 235 393 C215 398 194 399 174 395 C139 388 109 368 91 341 C80 324 76 302 77 282 C76 250 84 223 101 202 C123 175 154 162 183 160 C189 159 195 159 200 160Z" fill="#f58216"/>
+</svg>
