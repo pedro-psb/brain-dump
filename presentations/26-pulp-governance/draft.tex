@@ -57,14 +57,9 @@ and I have 2 cats that manages my remote work very closely.
 \subsection{Disclaimer}
 Before I start, I just wanna give a disclaimer.
 
-I've been a software engineer for a living for not this long time, but from the start,
-and even before the start really, I was driven to the world of open source.
-The reason is that \textbf{I really do believe} that some of the principles associated with open-source,
-like collaboration, transparency and freedom, are really important in any human activity.
-
-Despite that, I must confess I've never really dived deep into the topic of governance in open-source,
-which was a mistake, because after I started thinking and researching more about it, I started to realize and appreciate
-how vital it is the role governance in making these principles effective in practice.
+I've been a software engineer for a living for not so long time as some of you, but I can say I was
+an open-source enthusiast from the start. Despite that, I must confess I've never really dived deep
+into the topic of governance, like actively reseraching about that.
 
 So the disclaimer here is that I won't present you with in-depths concepts and authoritaive information
 - simply because I don't have them.
@@ -120,6 +115,13 @@ contributions.
 
 The more you participate, the more trust and power you gain.
 
+Currently, I'm a maintainer at the dynaconf python library, and this describes pretty
+accuretly how I got to this role. I decided that this was an interesting project to work on,
+and then started doing contributions, from small doc fixes, to small bug fixes, to features
+and to design documents and discussions!
+
+Maybe every model has a bit of this.
+
 \subsubsection{Founder-leader}
 Then there's the founder-leader model, where the founder has the final say.
 and Python is probably the canonical example of this.
@@ -127,10 +129,10 @@ Guido van Rossum was the founder-leader for a lot of years, but
 he stepped down in 2018, and the project moved to an elected steering council
 
 The degree in which other members can influence decisions has to do with how benevolent
-the founder-leader is, so you might also have heard of the role of a founder-leader as
-BDFL, or ``benevolent dictator for life.'' 
-\cite{python-governance}.
+the founder-leader is, so you might also have heard of this as the BDFL model, which stands for
+ ``benevolent dictator for life.''  \cite{python-governance}.
 
+\newpage
 \subsubsection{Electoral}
 Then there is the electoral model. People with voting rights choose the
 project's leaders, and sometimes decide on important policies too.
@@ -138,13 +140,22 @@ project's leaders, and sometimes decide on important policies too.
 Debian is a good example. Its developers elect the project leader every year,
 and they can also vote on general resolutions \cite{debian-constitution}.
 
+\begin{center}
+  \includegraphics[width=\linewidth]{images/debian-governance.png}
+\end{center}
+
 This model distributes power more evenly, and it is usually very well structured,
 but requires a good deal of organization and active community members.
 
+\newpage
 \subsubsection{Single-vendor}
 This is the case where there is one company behind the project development.
 Next.js, for example: Vercel's core team explicitly leads the project, even though people
 outside Vercel contribute too \cite{nextjs-governance}.
+
+\begin{center}
+  \includegraphics[width=\linewidth]{images/vercels-governance.png}
+\end{center}
 
 The amount of openess can vary greatly, but ultimetly company-baked team has the final call.
 
@@ -186,8 +197,8 @@ So this is an invitation for us to think about answering that question.
 Putting that in more appealing words:
 
 \begin{quote}
-How can we - members of the Pulp community - understand and shape our governance to maximize the value of this piece of software,
-which plays such as crucial role in todays industry?
+How can we - members of the Pulp community - understand and shape our governance to maximize the
+value of this piece of software (pulp), which plays such an important role in todays tech industry?
 \end{quote}
 
 \subsubsection{Recap}
@@ -200,12 +211,18 @@ And finally we were provoked to think about how good governance can help a proje
 the full power of it's community and of it's open-source nature.
 
 % -------------------------------------------------------------------------------
+\newpage
 \section{Governance in Pulp}
 
 Great, we concluded the first half of the talk!
 
 Now let's see more closely of what this pulp is made of.
-% TODO picture of zoom of a citrus fruit
+
+\begin{center}
+  \includegraphics[width=\linewidth]{images/pulp-zoom.png}\\[0.3em]
+  {\footnotesize Image credit: \href{https://www.freefoodphotos.com/}{freefoodphotos.com}
+  (Creative Commons Attribution)}
+\end{center}
 
 Here, I'll briefly describe some of the constituents of how the project operates:
 its rules, its roles, and its procedures. I'll probably leave something out,
@@ -227,20 +244,22 @@ And now we have the pulp/governance repository: a place for these governance art
 to become a project-wide shared source of truth. \cite{pulp-governance-repo}
 
 The idea of this repository was directly drawn from Forgejo governance repository. \cite{forgejo-governance-repo}
-\begin{center}
-  \includegraphics[width=\linewidth]{images/pulp-governance-repository.png}
-\end{center}
 
 \begin{center}
   \includegraphics[width=\linewidth]{images/forgejo-governance-repository.png}
 \end{center}
 
-\subsubsection{Opportunities}
-The next step finish moving all project-wide governance artifacts to that repository, and
-define the degree of freedom of each project component on redefining any of those.
+\begin{center}
+  \includegraphics[width=\linewidth]{images/pulp-governance-repository.png}
+\end{center}
 
-For mandatory ones, such as CoC, possibly distribute the artifacts on all active repositories,
-and use some automation to keep this in sync.
+\subsubsection{Opportunities}
+The next step is finish moving all project-wide governance artifacts to that repository, and
+define the degree of freedom of each project component should have on redefining any of those.
+
+Some are mandatory, such as SECURITY.md and which we'll talk a bit more briefly.
+In this case, we can also think on ways of making sure all repositories have the at least the
+default required artifacts.
 
 \subsection{Roles}
 
@@ -260,7 +279,7 @@ ah, I mean, a tech lead role for the pulp project, which is Grant.
 
 I'm kidding. It's not a Benevolent Dictator. Sorry, Grant.
 
-We felt the need for this role to help resolve challenging proposals
+But really, we felt the need for this role to help resolve challenging proposals
 with greater technical and political impact more effectively.
 
 \subsubsection{Opportunities}
@@ -290,15 +309,41 @@ shepherd Discourse discussions, among other I won't go into here.
 Although sometimes I find the document organization a bit chaotic, these work reasonably well in practice,
 so I wouldn't complain.
 
-\subsubsection{What's new}
-Another piece of work is our response to the EU Cyber Resilience Act, or CRA.
-It brings cybersecurity requirements for digital products in the EU,
-and Red Hat has identified itself as a steward for Pulp under its published guidance. \cite{redhat-cra-steward}
-
-The CRA work and pulp/governance started as separate efforts, but they help each other:
-the repository gives us a place to make security policies and project procedures easier to find.
-
 \newpage
+\subsubsection{What's new}
+Another piece of work is our response to the European Cyber Resilience Act, or CRA,
+which brings cybersecurity requirements for digital products in the EU. \cite{eu-cra-regulation}
+
+\begin{center}
+  \includegraphics[width=\linewidth]{images/cra-snapshot.png}\\[0.3em]
+  {\footnotesize Source: \href{https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng}
+  {EUR-Lex, Regulation (EU) 2024/2847}}
+\end{center}
+
+In June, Red Hat announced a stewardship program for selected open-source projects,
+with Pulp in its Light Stewardship group.
+Besides the Light program, there is also Champion program, which includes a set of higher
+standard processses like signing commit, adhering to some known process standard, etc.
+For now we decided to stick to the lightweight, but we could pursue the champion level in the future.
+
+The work in Pulp was done mostly by Andrew, Matthias, Grant and I in the course of about 2 months.
+We formed a working group to discuss and implement the required governance artifacts.
+
+The visible changes are the new Pulp Security Policy, covering secure development,
+private reports, and incident response; a Vulnerability Management Policy for
+triage, fixes, and coordinated disclosure; and \texttt{SECURITY.md} as an entry point
+from Pulp repositories. \cite{pulp-cra-announcement,pulp-security-policy,pulp-vulnerability-management}
+
+In practice, these new security processes involves a clearer coordination with Red Hat Product Security
+teams and gives researchers and users a clearer path from a private report to a fix and disclosure.
+Matthias and Grant were most involved in actual report in practice, so they can probably talk
+better about that process later (or maybe they can't because it's embargoed! kidding).
+\cite{redhat-cra-steward}
+
+The CRA work and pulp/governance started as separate efforts, but they complemented each other:
+the repository gave the new policies a clear home, and the CRA work gave us a concrete reason
+to make our security processes explicit.
+
 \subsubsection{Opportunities}
 We could make project health audits a regular procedure, building on the community audit
 we did in 2018. \cite{pulp-health-audit}
@@ -311,7 +356,17 @@ That means checking the health of each component and its maintainer coverage,
 along with security practices such as key rotation.
 Some of these checks could be automated.
 
-And the company user role gives us a reason to keep in touch:
+\newpage
+For example, we could look at the UK Ministry of Justice's repository audit tool:
+it checks security settings, workflows, and candidates for archiving. \cite{moj-audit-tool}
+
+\begin{center}
+  \includegraphics[width=\linewidth]{images/moj-audit-tool.png}\\[0.3em]
+  {\footnotesize \href{https://github.com/ministryofjustice/developer-experience-github-audit}
+  {UK Ministry of Justice Repository Audit Tool}}
+\end{center}
+
+And also, the \textbf{company user} role I proposed earlier gives us a reason to keep in touch:
 perhaps regular meetings, perhaps just an exchange of information.
 As trust grows, Pulp staff could tell interested companies early and directly about a maintainer gap,
 a breaking change, or plans to discontinue something.
@@ -341,6 +396,10 @@ At its heart, open source project and community governance is about people - the
 % -------------------------------------------------------------------------------
 \section{References}
 \begin{thebibliography}{99}
+  \bibitem{eu-cra-regulation}
+  European Parliament and Council. \emph{Regulation (EU) 2024/2847 (Cyber Resilience Act)}.
+  \url{https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng}.
+
   \bibitem{redhat-cra}
   Red Hat. \emph{Red Hat and the EU Cyber Resilience Act (CRA)}.
   Updated March 4, 2026. Accessed November 6, 2026.
@@ -354,10 +413,27 @@ At its heart, open source project and community governance is about people - the
   Local source note:
   \path{references/red-hat-eu-cyber-resilience-act-stewardship-guidelines.md}.
 
+  \bibitem{pulp-cra-announcement}
+  Pulp Project. \emph{Pulp, EU Cyber Resilience Act and Security Policies}.
+  September 3, 2026.
+  \url{https://discourse.pulpproject.org/t/pulp-eu-cyber-resilience-act-and-security-policies/2391}.
+
+  \bibitem{pulp-security-policy}
+  Pulp Project. \emph{Pulp Security Policy}.
+  \url{https://pulpproject.org/security/}.
+
+  \bibitem{pulp-vulnerability-management}
+  Pulp Project. \emph{Pulp Vulnerability Management Policy}.
+  \url{https://pulpproject.org/security/vulnerability-management/}.
+
   \bibitem{pulp-health-audit}
   Pulp Project. \emph{Pulp Community Health Audit Report}. September 17, 2018.
   Accessed November 6, 2026.
   \url{https://pulpproject.org/blog/2018/09/17/pulp-community-health-audit-report/}.
+
+  \bibitem{moj-audit-tool}
+  UK Ministry of Justice. \emph{Repository Audit Tool}.
+  \url{https://github.com/ministryofjustice/developer-experience-github-audit}.
 
   \bibitem{open-source-way-governance}
   The Open Source Way contributors. \emph{Project and Community Governance}.
