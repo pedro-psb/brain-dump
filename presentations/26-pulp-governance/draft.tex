@@ -2,11 +2,20 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[margin=1in]{geometry}
-\usepackage{graphicx}
 \usepackage{hyperref}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.5em}
+
+% Place \nextslide between speaking beats to mark a slide change in the script.
+\newcommand{\nextslide}{%
+  \par\smallskip\noindent\fbox{\textsf{\small Switch slides}}\par\smallskip
+}
+
+%TC:macro \draftimage [ignore]
+\newcommand{\draftimage}[1]{%
+  \par\medskip\noindent\emph{\textless image of #1\textgreater}\par\medskip
+}
 
 \title{Pulp Governance}
 \author{Pedro Brochado}
@@ -44,8 +53,11 @@ see the Pulp Community Health Audit Report \cite{pulp-health-audit}.
 Hello everyone, this presentation is about the new governance repository in the Pulp Project.
 
 \subsection{Roadmap}
-We'll start with a general introduction to governance, the we'll jump into what's new with
-that repository and finally throw some ideas for the future.
+We'll start with a general introduction to governance,
+then we'll discuss a bit about governance in Pulp
+and finally throw some ideas for where we could go as a project.
+
+\nextslide
 
 \subsection{Self-Presentation}
 First let me introduce myself:
@@ -54,8 +66,10 @@ I work full time at the Pulp Project.
 and I have 2 cats that manages my remote work very closely.
 % TODO: photo wiht Red Hat hat, pulp jacket and my cats on my PC.
 
+But before I start, I just wanna give a disclaimer.
+\nextslide
+
 \subsection{Disclaimer}
-Before I start, I just wanna give a disclaimer.
 
 I've been a software engineer for a living for not so long time as some of you, but I can say I was
 an open-source enthusiast from the start. Despite that, I must confess I've never really dived deep
@@ -66,6 +80,8 @@ So the disclaimer here is that I won't present you with in-depths concepts and a
 My humble goal is to share some of my recent enthusiams for the topic, and I hope you find that inspiring
 or useful!
 
+So let's get started.
+\nextslide
 % -------------------------------------------------------------------------------
 \section{Open-Source and Governance}
 % Define what governance is and why it matters.
@@ -73,14 +89,17 @@ or useful!
 % Try to situate Pulp as company-baked with an openess for extensions (e.g, outside collaborators)
 
 \subsection{Introduction}
-So let's get started.
-
 In this section I want to show just a few examples governance in open-source projects.
-First things first:
+
+But first things first:
+\nextslide
 
 \subsection{What is governance?}
 % Define what governance is and why it matters.
+What is governance
 
+\nextslide
+\subsubsection{A definition}
 According to this great website, theopensourceway.org, it can have different meaning in different contexts.
 I like one of the quotes which is very incisive, which says that governance:
 
@@ -88,9 +107,12 @@ I like one of the quotes which is very incisive, which says that governance:
 (...) a system of \textbf{rules, roles, and procedures} that determine how \textbf{power}
 in an organization gets distributed.
 \end{quote}
-% TODO: cite the opensourceway.org
 
 The open-ended part of this definiton is: who is part of an open-source project organization?
+
+\nextslide
+
+\subsubsection{Who belongs to the project?}
 
 My personal temptative answer is that developers, the users and possibly the companies behind them
 are all part of that organization, whether that is explicitly stated or not.
@@ -101,11 +123,18 @@ It's showing who, how and when one can influence a project's direction.
 
 So now let's see a few governance models, and how they distribute that power.
 
+\nextslide
+
 \subsection{Governance models}
+\subsubsection{Five models}
 First, these are just some examples.
-The mix of models depends on what a project goal is, how big is it and various other factors
-I cannot discuss here.
+Real world are always more subtle than it's theory.
+
+I also wanna stress how each model choice is influenced by the project mission is, size, complexity
+and various other factors I cannot discuss here.
 \cite{open-source-way-governance}.
+
+\nextslide
 
 \subsubsection{Do-ocracy}
 So let's see the do-ocracy model.
@@ -118,9 +147,11 @@ The more you participate, the more trust and power you gain.
 Currently, I'm a maintainer at the dynaconf python library, and this describes pretty
 accuretly how I got to this role. I decided that this was an interesting project to work on,
 and then started doing contributions, from small doc fixes, to small bug fixes, to features
-and to design documents and discussions!
+and to design decisions! Until eventually I got "promoted".
 
 Maybe every model has a bit of this.
+
+\nextslide
 
 \subsubsection{Founder-leader}
 Then there's the founder-leader model, where the founder has the final say.
@@ -132,7 +163,8 @@ The degree in which other members can influence decisions has to do with how ben
 the founder-leader is, so you might also have heard of this as the BDFL model, which stands for
  ``benevolent dictator for life.''  \cite{python-governance}.
 
-\newpage
+\nextslide
+
 \subsubsection{Electoral}
 Then there is the electoral model. People with voting rights choose the
 project's leaders, and sometimes decide on important policies too.
@@ -140,47 +172,53 @@ project's leaders, and sometimes decide on important policies too.
 Debian is a good example. Its developers elect the project leader every year,
 and they can also vote on general resolutions \cite{debian-constitution}.
 
-\begin{center}
-  \includegraphics[width=\linewidth]{images/debian-governance.png}
-\end{center}
-
 This model distributes power more evenly, and it is usually very well structured,
 but requires a good deal of organization and active community members.
 
-\newpage
+\nextslide
+
+\subsubsection{Debian constitution}
+\draftimage{the Debian constitution page}
+
 \subsubsection{Single-vendor}
 This is the case where there is one company behind the project development.
+The amount of openess can vary greatly, but ultimetly the company-baked team usually has the final call.
+
+\nextslide
 Next.js, for example: Vercel's core team explicitly leads the project, even though people
 outside Vercel contribute too \cite{nextjs-governance}.
 
-\begin{center}
-  \includegraphics[width=\linewidth]{images/vercels-governance.png}
-\end{center}
-
-The amount of openess can vary greatly, but ultimetly company-baked team has the final call.
+\nextslide
+\subsubsection{Next.js governance}
+\draftimage{the Next.js governance page}
 
 \subsubsection{Foundation-backed}
 And finally, there's the foundation-backed model. A foundation helps look after
 the project's resources and support its community.
 
 The Cloud Native Computing Foundation (CNCF) is a great example.
-The foundation is behind a lot of project, which contains different levels of compliance
-to a very well defined set of project standards.
+The foundation is behind a lot of project, and it tries to enforce some specific governance practices
 
-For example, it has mechanism to ensure a project has a diversity of members from different
+For instance, it has mechanism to ensure a project has a diversity of members from different
 companies, so no single-vendor dictates de direction of the project.
 
 It also establishes that projects under the organization has some specific \textbf{governance artifacts},
 like a MAINTAINERS.md file, which codifies ownership and brings transparency on the project roles.
 
+\nextslide
 This is great for projects that need robust strategies, standards and protocols,
 which beneft a lot from diversity and cooperation among bigger stakeholders.
 Some examples are Kubernetes and Linux. \cite{cncf-kubernetes}
 
+\subsubsection{CNCF governance}
+\draftimage{CNCF governance requirements}
+
+\nextslide
 \subsubsection{And Pulp?}
 
 And Pulp, what is Pulp's model?
 
+\nextslide
 This was the core question that motivated me to create the pulp/governance repository.
 
 I think the most straighfoward observation we can make is that the project is baked by Red Hat,
@@ -192,15 +230,18 @@ and we even have individuals that just wanna make contributions of their own!
 
 And we have to look into all of this.
 
-So this is an invitation for us to think about answering that question.
+Which invites us to think about answering a question,
+which I've phrased in very appealing words:
 
-Putting that in more appealing words:
+\nextslide
+\subsubsection{Our question}
 
 \begin{quote}
 How can we - members of the Pulp community - understand and shape our governance to maximize the
 value of this piece of software (pulp), which plays such an important role in todays tech industry?
 \end{quote}
 
+\nextslide
 \subsubsection{Recap}
 
 Quick recap:
@@ -209,32 +250,33 @@ We've seen governance as a set of rules, roles and produces that determine distr
 We've seen 5 example models of how can a project shape it's governance;
 And finally we were provoked to think about how good governance can help a project leverage
 the full power of it's community and of it's open-source nature.
+\nextslide
 
 % -------------------------------------------------------------------------------
-\newpage
 \section{Governance in Pulp}
+\subsection{Closer look}
 
 Great, we concluded the first half of the talk!
 
-Now let's see more closely of what this pulp is made of.
-
-\begin{center}
-  \includegraphics[width=\linewidth]{images/pulp-zoom.png}\\[0.3em]
-  {\footnotesize Image credit: \href{https://www.freefoodphotos.com/}{freefoodphotos.com}
-  (Creative Commons Attribution)}
-\end{center}
+Now let's see more closely of what this pulp made of.
 
 Here, I'll briefly describe some of the constituents of how the project operates:
-its rules, its roles, and its procedures. I'll probably leave something out,
-so please forgive me ahead of time.
+its rules, its roles, and its procedures.
+
+\nextslide
+
+\draftimage{an orange close-up, by freefoodphotos.com (Creative Commons Attribution)}
+
+\nextslide
 
 \subsection{Rules}
 
-\subsubsection{Current state}
+\subsubsection{Existing State}
 The project has most of the basic artifacts you'd expect from an open-source project:
 a Code of Conduct, a Privacy Notice, license files, contribution guidelines, and so on.
-These \textbf{governance artifacts} do a decent job of defining our general rules and principles.
+In my humble opinion, these \textbf{governance artifacts} do a decent job of defining our general rules and principles.
 
+\nextslide
 \subsubsection{What's new}
 One recent addition is the AI Policy. We've received our share of low quality AI PRs and reports,
 so we're trying to reduce the maintenance burden while still allowing responsible,
@@ -243,16 +285,15 @@ accountable use of AI as a tool. \cite{pulp-ai-policy}
 And now we have the pulp/governance repository: a place for these governance artifacts
 to become a project-wide shared source of truth. \cite{pulp-governance-repo}
 
+\nextslide
+
 The idea of this repository was directly drawn from Forgejo governance repository. \cite{forgejo-governance-repo}
+\draftimage{the Forgejo governance repository}
 
-\begin{center}
-  \includegraphics[width=\linewidth]{images/forgejo-governance-repository.png}
-\end{center}
+\nextslide
+\draftimage{the Pulp governance repository}
 
-\begin{center}
-  \includegraphics[width=\linewidth]{images/pulp-governance-repository.png}
-\end{center}
-
+\nextslide
 \subsubsection{Opportunities}
 The next step is finish moving all project-wide governance artifacts to that repository, and
 define the degree of freedom of each project component should have on redefining any of those.
@@ -263,7 +304,7 @@ default required artifacts.
 
 \subsection{Roles}
 
-\subsubsection{Current state}
+\subsubsection{Existing State}
 I'll start with a critique: we don't have a formal description of our roles
 that anyone can read and understand. While we do have GitHub teams and permissions,
 which encode some responsibilities, some implicit roles are not recognized.
@@ -273,20 +314,28 @@ who have different levels of influence;
 there are also plugin leaders, which are known among developers but are not public anywhere;
 and there are also active user members, which don't have an official chair anywhere.
 
+And we have some news on the roles section:
+We've recently introduced ...
+
+\nextslide
 \subsubsection{What's new}
-More recently, we've informally introduced a Benevolent Dictator\ldots{}
+a Benevolent Dictator\ldots{}
 ah, I mean, a tech lead role for the pulp project, which is Grant.
 
-I'm kidding. It's not a Benevolent Dictator. Sorry, Grant.
+I'm kidding. He said he doesn't like Benevolent Dictator, so let's obey his call.
+Sorry, Grant.
 
 But really, we felt the need for this role to help resolve challenging proposals
 with greater technical and political impact more effectively.
 
+\nextslide
 \subsubsection{Opportunities}
 I'd really like each project to have a \texttt{MAINTAINERS.md} file that says who looks after it.
 CNCF projects use maintainers files in their reviews; for us, they would make
 ownership more transparent and maintenance gaps easier to spot during an audit. \cite{cncf-maintainers}
 
+\nextslide
+\subsubsection{Company users}
 Another idea I had recently was to define an official \textbf{company user} role.
 This would be a representative of a company that publicly uses Pulp
 and wants a closer relationship with the project.
@@ -296,9 +345,10 @@ and open a direct line of communication.
 With their permission, Pulp could also share the company's name or logo
 as an example of who uses the project.
 
+\nextslide
 \subsection{Processes}
 
-\subsubsection{Current state}
+\subsubsection{Existing State}
 As far as I know, the most important public processes are documented:
 community integration meetings with Katello, where the core team works
 with people from Red Hat and ATIX; open pulpcore and open-floor meetings where anyone
@@ -309,23 +359,22 @@ shepherd Discourse discussions, among other I won't go into here.
 Although sometimes I find the document organization a bit chaotic, these work reasonably well in practice,
 so I wouldn't complain.
 
-\newpage
 \subsubsection{What's new}
-Another piece of work is our response to the European Cyber Resilience Act, or CRA,
-which brings cybersecurity requirements for digital products in the EU. \cite{eu-cra-regulation}
+One thing that happened is the European Cyber Resilience Act, or CRA.
+This is an European regulation that exists since 2024 which brings
+cybersecurity requirements for digital products, such as those that consume open-source projects. \cite{eu-cra-regulation}
 
-\begin{center}
-  \includegraphics[width=\linewidth]{images/cra-snapshot.png}\\[0.3em]
-  {\footnotesize Source: \href{https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng}
-  {EUR-Lex, Regulation (EU) 2024/2847}}
-\end{center}
+\subsubsection{CRA text}
+\draftimage{the CRA text on EUR-Lex}
 
+\subsubsection{Red Hat stewardship}
 In June, Red Hat announced a stewardship program for selected open-source projects,
 with Pulp in its Light Stewardship group.
 Besides the Light program, there is also Champion program, which includes a set of higher
 standard processses like signing commit, adhering to some known process standard, etc.
 For now we decided to stick to the lightweight, but we could pursue the champion level in the future.
 
+\subsubsection{Pulp working group}
 The work in Pulp was done mostly by Andrew, Matthias, Grant and I in the course of about 2 months.
 We formed a working group to discuss and implement the required governance artifacts.
 
@@ -340,6 +389,7 @@ Matthias and Grant were most involved in actual report in practice, so they can 
 better about that process later (or maybe they can't because it's embargoed! kidding).
 \cite{redhat-cra-steward}
 
+\subsubsection{Complementary efforts}
 The CRA work and pulp/governance started as separate efforts, but they complemented each other:
 the repository gave the new policies a clear home, and the CRA work gave us a concrete reason
 to make our security processes explicit.
@@ -348,24 +398,22 @@ to make our security processes explicit.
 We could make project health audits a regular procedure, building on the community audit
 we did in 2018. \cite{pulp-health-audit}
 
-\begin{center}
-  \includegraphics[width=\linewidth]{images/community-health-report-2018.png}
-\end{center}
+\subsubsection{2018 community audit}
+\draftimage{the 2018 Pulp Community Health Audit Report}
 
+\subsubsection{Repeatable checks}
 That means checking the health of each component and its maintainer coverage,
 along with security practices such as key rotation.
 Some of these checks could be automated.
 
 \newpage
+\subsubsection{MoJ audit tool}
 For example, we could look at the UK Ministry of Justice's repository audit tool:
 it checks security settings, workflows, and candidates for archiving. \cite{moj-audit-tool}
 
-\begin{center}
-  \includegraphics[width=\linewidth]{images/moj-audit-tool.png}\\[0.3em]
-  {\footnotesize \href{https://github.com/ministryofjustice/developer-experience-github-audit}
-  {UK Ministry of Justice Repository Audit Tool}}
-\end{center}
+\draftimage{the UK Ministry of Justice GitHub audit tool}
 
+\subsubsection{Company user relationships}
 And also, the \textbf{company user} role I proposed earlier gives us a reason to keep in touch:
 perhaps regular meetings, perhaps just an exchange of information.
 As trust grows, Pulp staff could tell interested companies early and directly about a maintainer gap,

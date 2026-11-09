@@ -59,10 +59,27 @@
   }%
 }
 
-\title{Welcome Pulp Governance}
+\title{Pulp Governance}
 \subtitle{Past, Present and Future}
 \author{Pedro Brochado}
 \date{November 9, 2026}
+
+\newcommand{\imageframe}[3]{%
+  \begin{frame}{#1}
+    \centering
+    \includegraphics[width=.96\linewidth,height=.72\paperheight,keepaspectratio]{#2}\par
+    \vspace{.4em}{\scriptsize #3}
+  \end{frame}
+}
+
+\newcommand{\sectiondivider}{%
+  \begin{frame}[plain]
+    \centering
+    \vfill
+    {\usebeamercolor[fg]{title}\Huge\bfseries\insertsectionhead\par}
+    \vfill
+  \end{frame}
+}
 
 \begin{document}
 
@@ -79,90 +96,405 @@
   \vspace*{\fill}
 \end{frame}
 
-\begin{frame}{Abstract}
-  Summarize the governance question, the proposed approach, and the intended
-  outcome.
-\end{frame}
+\section{Opening screen}
 
-\section{Revision}
-
-\begin{frame}{References reviewed}
+\subsection{Roadmap}
+\begin{frame}{Roadmap}
+  \Large
   \begin{itemize}
-    \item \textbf{Red Hat's CRA position}: industry context on lifecycle security.
-    \item \textbf{Stewardship guidance}: Red Hat's stated role and practices for Pulp.
-    \item \textbf{Community health audit (2018)}: historical governance and process context.
-    \item \textbf{The Open Source Way}: governance roles, policies, and community evolution.
-    \item \textbf{Pulp governance repository}: current project policies and processes.
+    \setlength{\itemsep}{1em}
+    \item What is governance?
+    \item How Pulp works today
+    \item Where we could go
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Current context}
-  Document existing governance arrangements. Cite primary sources for current
-  roles, processes, and policies. Use the CRA materials for industry context
-  and the 2018 audit for historical context.
+\subsection{Self-Presentation}
+\begin{frame}{Self-Presentation}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Software engineer at Red Hat
+    \item Working full time on Pulp
+    \item Supervised by two cats
+  \end{itemize}
 \end{frame}
 
-\section{Goal}
-
-\begin{frame}{Goal}
-  State the governance question, intended audience, and desired outcome.
+\subsection{Disclaimer}
+\begin{frame}{Disclaimer}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item I'm still learning about governance
+    \item I hope these ideas spark useful discussion
+  \end{itemize}
 \end{frame}
 
-\section{What is governance?}
+\section{Open-Source and Governance}
+\sectiondivider
 
+\subsection{What is governance?}
 \begin{frame}{What is governance?}
-  Define governance for the Pulp project and identify the roles, policies, and
-  procedures that shape how the community works.
 \end{frame}
 
-\section{Past, Present and Future}
-
-\subsection{Past}
-
-\begin{frame}{Past}
-  \begin{itemize}[<+->]
-    \item Project health audits
-    \item Community leadership
-    \item Something else
-  \end{itemize}
+\subsubsection{A definition}
+\begin{frame}{A definition}
+  \begin{quote}
+    \Large
+    (...) a system of \textbf{rules, roles, and procedures} that determine how \textbf{power}
+    in an organization gets distributed.
+  \end{quote}
+  \vfill
+  {\scriptsize \href{https://guidebook.theopensourceway.org/growing-contributors/project-and-community-governance}
+    {The Open Source Way}}
 \end{frame}
 
-\subsection{Present}
-
-\begin{frame}{Present}
+\subsubsection{Who belongs to the project?}
+\begin{frame}{Who belongs to the project?}
+  \Large
   \begin{itemize}
-    \item Pulp governance repository
-    \item Cyber Resilience Act (CRA)
+    \setlength{\itemsep}{1em}
+    \item Developers
+    \item Users
+    \item Companies
   \end{itemize}
 \end{frame}
 
-\subsection{Future}
-
-\begin{frame}{Future}
+\subsection{Governance models}
+\subsubsection{Five models}
+\begin{frame}{Five models}
+  \Large
   \begin{itemize}
-    \item Automated audits
-    \item \texttt{MAINTAINERS.md} (CNCF)
+    \item Do-ocracy
+    \item Founder-leader
+    \item Electoral
+    \item Single-vendor
+    \item Foundation-backed
   \end{itemize}
 \end{frame}
 
-\section{Open questions}
-
-\begin{frame}{Open questions}
-  Collect unresolved questions, potential risks, and decisions needed from the
-  intended audience.
-\end{frame}
-
-\section{References}
-
-\begin{frame}{References}
-  \footnotesize
+\subsubsection{Do-ocracy}
+\begin{frame}{Do-ocracy}
+  \Large
   \begin{itemize}
-    \item \href{https://www.redhat.com/en/red-hat-eu-cyber-resilience-act}{Red Hat and the EU Cyber Resilience Act (CRA)}
-    \item \href{https://access.redhat.com/security/eu-cyber-resilience-act-stewardship-guidelines}{EU Cyber Resilience Act Stewardship Guidelines}
-    \item \href{https://pulpproject.org/blog/2018/09/17/pulp-community-health-audit-report/}{Pulp Community Health Audit Report (2018)}
-    \item \href{https://guidebook.theopensourceway.org/growing-contributors/project-and-community-governance}{The Open Source Way: Project and Community Governance}
-    \item \href{https://github.com/pulp/governance/}{Pulp governance repository}
+    \setlength{\itemsep}{1em}
+    \item Those doing the work make decisions
+    \item Trust grows through contribution
+    \item Often small, informal projects
   \end{itemize}
+\end{frame}
+
+\subsubsection{Founder-leader}
+\begin{frame}{Founder-leader}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Founder has the final say
+    \item Python: Guido van Rossum
+    \item Un-tie hard decisions rapidly
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Electoral}
+\begin{frame}{Electoral}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Members elect leaders
+    \item Debian: Project Leader
+    \item Developers vote on general resolutions
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Debian constitution}
+\imageframe{Debian constitution}{images/debian-governance.png}{%
+  \href{https://www.debian.org/devel/constitution}{Debian Constitution}}
+
+\subsubsection{Single-vendor}
+\begin{frame}{Single-vendor}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item One company leads development
+    \item Next.js: Vercel's core team
+    \item Outside contributors participate
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Next.js governance}
+\imageframe{Next.js governance}{images/vercels-governance.png}{%
+  \href{https://nextjs.org/governance}{Next.js governance}}
+
+\subsubsection{Foundation-backed}
+\begin{frame}{Foundation-backed}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Shared standards and resources
+    \item CNCF: project governance requirements
+    \item Diversity across organizations
+  \end{itemize}
+\end{frame}
+
+\subsubsection{CNCF governance}
+\imageframe{CNCF governance}{images/cncf-governance.png}{%
+  \href{https://contribute.cncf.io/community/governance/}{CNCF governance}}
+
+\subsubsection{And Pulp?}
+\begin{frame}{And Pulp?}
+\end{frame}
+
+\begin{frame}{And Pulp?}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Red Hat is central
+    \item Other companies contribute
+    \item Users and individuals matter
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Our question}
+\begin{frame}{Our question}
+  \begin{quote}
+    \Large
+    How can we understand and shape our governance to maximize the
+    value of this piece of software, which plays such an important role in todays tech industry?
+
+  \end{quote}
+\end{frame}
+
+\subsubsection{Recap}
+\begin{frame}{Recap}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Rules, roles, and procedures distribute power
+    \item Five governance models
+    \item Full community potential
+  \end{itemize}
+\end{frame}
+
+\section{Governance in Pulp}
+\sectiondivider
+\subsection{Closer look}
+\imageframe{Closer look}{images/pulp-zoom.png}{%
+  Image: \href{https://www.freefoodphotos.com/}{freefoodphotos.com}
+  (Creative Commons Attribution)}
+
+\subsection{Rules}
+\subsubsection{Existing State}
+\begin{frame}{Rules / Existing State}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Code of Conduct
+    \item Privacy and licensing
+    \item Contribution guidelines
+  \end{itemize}
+\end{frame}
+
+\subsubsection{What's new}
+\begin{frame}{Rules / What's new}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item AI Policy
+    \item \texttt{pulp/governance}
+    \item A shared source of truth
+  \end{itemize}
+\end{frame}
+
+\imageframe{Rules / Forgejo inspiration}{images/forgejo-governance-repository.png}{%
+  \href{https://codeberg.org/forgejo/governance}{Forgejo governance repository}}
+
+\imageframe{Rules / Pulp governance repository}{images/pulp-governance-repository.png}{%
+  \href{https://github.com/pulp/governance}{Pulp governance repository}}
+
+\subsubsection{Opportunities}
+\begin{frame}{Rules / Opportunities}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Consolidate project-wide rules
+    \item Define room for local rules
+    \item Keep required files in sync
+  \end{itemize}
+\end{frame}
+
+\subsection{Roles}
+\subsubsection{Existing State}
+\begin{frame}{Roles / Existing State}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item GitHub teams encode permissions
+    \item Maintainers and plugin leaders
+    \item Some roles remain implicit
+  \end{itemize}
+\end{frame}
+
+\subsubsection{What's new}
+\begin{frame}{Roles / What's new}
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item BDFL: Grant Gainey
+    \item Help resolve greater technical and political conflicts
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Roles / What's new}
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Tech Lead: Grant Gainey
+    \item Help resolve greater technical and political conflicts
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Opportunities}
+\begin{frame}{Roles / Opportunities}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item \texttt{MAINTAINERS.md} per project
+    \item Clear ownership
+    \item Easier to spot coverage gaps
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Company users}
+\begin{frame}{Roles / Company users}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Public interest in specific projects
+    \item Private direct contact
+    \item Recognition with permission
+  \end{itemize}
+\end{frame}
+
+\subsection{Processes}
+\subsubsection{Existing State}
+\begin{frame}{Processes / Existing State}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Open meetings
+    \item Bug triage
+    \item Release and meeting rotations
+  \end{itemize}
+\end{frame}
+
+\subsubsection{What's new}
+\begin{frame}{Processes / What's new}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item European Cyber Resilience Act (CRA)
+    \item Cybersecurity requirements for products with digital elements
+  \end{itemize}
+\end{frame}
+
+\subsubsection{CRA text}
+\imageframe{Processes / CRA text}{images/cra-snapshot.png}{%
+  \href{https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng}
+    {EUR-Lex, Regulation (EU) 2024/2847}}
+
+\subsubsection{Red Hat stewardship}
+\begin{frame}{Processes / Red Hat stewardship}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Pulp: Light Stewardship
+    \item Support for policy and process
+    \item Coordinated security reporting
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Pulp working group}
+\begin{frame}{Processes / Pulp working group}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{.7em}
+    \item Andrew, Matthias, Grant, Pedro
+    \item Security Policy
+    \item Vulnerability Management Policy
+    \item \texttt{SECURITY.md}
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Complementary efforts}
+\begin{frame}{Processes / Complementary efforts}
+  \begin{center}
+    \Large CRA work \quad $\longleftrightarrow$ \quad \texttt{pulp/governance}
+    \vspace{1em}
+
+    \large Separate beginnings, complementary outcomes
+  \end{center}
+\end{frame}
+
+\subsubsection{Opportunities}
+\begin{frame}{Processes / Opportunities}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Make audits regular
+    \item Follow up on findings
+  \end{itemize}
+\end{frame}
+
+\subsubsection{2018 community audit}
+\imageframe{Processes / 2018 community audit}{images/community-health-report-2018.png}{%
+  \href{https://pulpproject.org/blog/2018/09/17/pulp-community-health-audit-report/}
+    {Pulp Community Health Audit Report}}
+
+\subsubsection{Repeatable checks}
+\begin{frame}{Processes / Repeatable checks}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Component health
+    \item Maintainer coverage
+    \item Security practices
+  \end{itemize}
+\end{frame}
+
+\subsubsection{MoJ audit tool}
+\imageframe{Processes / MoJ audit tool}{images/moj-audit-tool.png}{%
+  \href{https://github.com/ministryofjustice/developer-experience-github-audit}
+    {UK Ministry of Justice Repository Audit Tool}}
+
+\subsubsection{Company user relationships}
+\begin{frame}{Processes / Company user relationships}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Regular contact
+    \item Early notice of maintenance gaps
+    \item A path to new ownership
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Recap}
+\begin{frame}{Governance in Pulp / Recap}
+  \Large
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Rules: \texttt{pulp/governance}
+    \item Roles: room to improve
+    \item Processes: project and community health
+  \end{itemize}
+\end{frame}
+
+\section{Conclusion}
+\sectiondivider
+\subsection{The end}
+\begin{frame}{The end}
+  \begin{quote}
+    \Large Governance is about people: their
+    \textbf{rights and responsibilities}, and what
+    others can expect of them.
+  \end{quote}
 \end{frame}
 
 \begin{frame}
